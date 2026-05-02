@@ -2,6 +2,11 @@
   "manifest_version": 3,
   "name": "VIX",
   "version": "1.0.0",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "vix@sankalan.com"
+    }
+  },
   "description": "Lightning-fast code error explanations.",
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self'; connect-src 'self' https://vix-theta.vercel.app http://localhost:3001"
