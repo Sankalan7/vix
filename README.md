@@ -2,7 +2,7 @@
 
 VIX is a high-end browser extension designed to evolve the way developers debug code. It's not just a chat bot; it's a context-aware AI utility that analyzes stack traces, detects environments (Chrome Extensions, React, Node.js), and provides surgical, plain-English solutions.
 
-![VIX UI](https://github.com/user-attachments/assets/vix-mockup-placeholder.png)
+![VIX UI](assets/vix_ui_mockup.png)
 
 ## 🚀 Key Features
 - **Context Fusion**: Analyzes filenames and stack traces to detect if you're in an extension, a framework, or a raw script.
