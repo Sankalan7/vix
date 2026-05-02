@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo-area">
+        <img src="icon_128.png" alt="VIX Logo">
+        <h1>VIX</h1>
+      </div>
+    </header>
+
+    <main>
+      <!-- Input View -->
+      <div id="input-view" class="view">
+        <div class="input-group">
+          <label>Error Context</label>
+          <textarea id="error-input" placeholder="Paste your error log or code snippet here..."></textarea>
+        </div>
+        
+        <div class="input-group">
+          <label>Environment</label>
+          <select id="lang-select">
+            <option value="auto">Auto-detect Environment</option>
+            <option value="javascript">JavaScript / Node.js</option>
+            <option value="typescript">TypeScript</option>
+            <option value="python">Python</option>
+            <option value="rust">Rust</option>
+            <option value="go">Go</option>
+          </select>
+        </div>
+
+        <button id="explain-btn" class="primary-btn">Analyze Error</button>
+      </div>
+
+      <!-- Result View (Technical) -->
+    <div id="result-view" class="view hidden">
+      <div class="result-block">
+        <label>Refine Context</label>
+        <textarea id="refine-input-err" class="refine-area"></textarea>
+        <button class="re-analyze-btn">Re-analyze</button>
+      </div>
+
+      <div class="result-block">
+        <label>The Diagnosis</label>
+        <p id="res-summary"></p>
+      </div>
+
+      <div class="result-block">
+        <label>Potential Origins</label>
+        <ul id="res-causes"></ul>
+      </div>
+
+      <div class="result-block">
+        <label>Resolved Logic</label>
+        <div id="res-fix"></div>
+      </div>
+
+      <div class="action-row">
+        <button id="copy-btn" class="secondary-btn">Copy Fix</button>
+        <button id="reset-btn" class="secondary-btn">New Session</button>
+      </div>
+    </div>
+
+    <!-- Chat View (Conversational) -->
+    <div id="chat-view" class="view hidden">
+      <div class="result-block">
+        <label>Refine Query</label>
+        <textarea id="refine-input-chat" class="refine-area"></textarea>
+        <button class="re-analyze-btn">Re-analyze</button>
+      </div>
+
+      <div class="result-block">
+        <label>VIX Assistant</label>
+        <p id="chat-message" style="line-height: 1.6; font-size: 14px; margin-top: 8px;"></p>
+      </div>
+      <button id="chat-reset-btn" class="secondary-btn">New Session</button>
+    </div>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="hidden">
+      <div class="loader"></div>
+    </div>
+
+    <!-- Error Toast -->
+    <div id="error-toast" class="hidden">
+      <span id="error-msg"></span>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

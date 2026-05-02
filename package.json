@@ -1,0 +1,13 @@
+{
+  "name": "vix-debugger",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "web"
+  ],
+  "scripts": {
+    "dev:web": "npm run dev --workspace=web",
+    "build:web": "npm run build --workspace=web",
+    "install:all": "npm install && cd web && npm install"
+  }
+}
