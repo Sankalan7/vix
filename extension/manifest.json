@@ -27,11 +27,5 @@
   "host_permissions": [
     "https://vix-theta.vercel.app/*",
     "http://localhost/*"
-  ],
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["contentSocialBlocker.js"]
-    }
   ]
 }
