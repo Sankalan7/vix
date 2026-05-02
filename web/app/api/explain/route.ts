@@ -4,6 +4,17 @@ import { EXPLAIN_PROMPT } from "@/lib/prompts";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
 
+export async function OPTIONS() {
+  return new NextResponse(null, {
+    status: 204,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type",
+    },
+  });
+}
+
 export async function POST(req: Request) {
   try {
     const { error, lang } = await req.json();
@@ -28,9 +39,23 @@ export async function POST(req: Request) {
     const cleanedText = text.replace(/```json\n?|\n?```/g, "").trim();
     const data = JSON.parse(cleanedText);
 
-    return NextResponse.json(data);
+    return NextResponse.json(data, {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type",
+      },
+    });
   } catch (err: any) {
     console.error("Gemini Error:", err);
-    return NextResponse.json({ error: "Analysis failed", details: err.message }, { status: 500 });
+    return NextResponse.json(
+      { error: "Analysis failed", details: err.message },
+      { 
+        status: 500,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+      }
+    );
   }
 }
