@@ -3,6 +3,15 @@
   "name": "VIX",
   "version": "1.0.0",
   "description": "Lightning-fast code error explanations.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "vix@sankalan.com",
+      "data_collection_permissions": {
+        "required": ["websiteContent"],
+        "optional": ["technicalAndInteraction"]
+      }
+    }
+  },
   "action": {
     "default_popup": "popup.html",
     "default_title": "Debugger",
@@ -14,7 +23,7 @@
     "128": "icon_128.png"
   },
   "background": {
-    "service_worker": "background.js"
+    "scripts": ["background.js"]
   },
   "permissions": [
     "storage",

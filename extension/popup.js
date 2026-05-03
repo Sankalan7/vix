@@ -101,7 +101,12 @@ function showResult(data, originalText) {
     resultView.classList.add('hidden');
   } else {
     resSummary.innerText = data.summary;
-    resCauses.innerHTML = (data.causes || []).map(c => `<li>${c}</li>`).join('');
+    resCauses.innerHTML = '';
+    (data.causes || []).forEach(c => {
+      const li = document.createElement('li');
+      li.textContent = c;
+      resCauses.appendChild(li);
+    });
     resFix.innerText = data.fix || '';
     refineInputErr.value = originalText;
     resultView.classList.remove('hidden');
